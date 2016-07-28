@@ -1,7 +1,7 @@
 'use strict';
 
 const Router = require('express').Router;
-const serverlog = require('serverlog');
+const serverlog = require('debug');
 const errorLib = require('../model/errorLib');
 const User = require('../model/somefile');
 let router = Router();
@@ -34,7 +34,7 @@ router.post('/user', jsonParser, (req, res) => {
     serverlog('error');
     return errorLib.error400('400 bad request').respond(res);
   }
-  var user = new User(req.body.name);
+  var user = new User(req.body.name, req.body.skill, req.body.gender);
   userPool[user.id] = user;
   res.status(200).json(user);
   serverlog('users: ', userPool);
@@ -45,11 +45,12 @@ router.put('/user/:id', (req, res) => {
     serverlog('error');
     return errorLib.error404('404 not found').respond(res);
   }
-  if(!req.body.name){
+  if(!req.body.name || !req.body.skill || !req.body.gender){
     serverlog('error');
     return errorLib.error400('400 bad request').respond(res);
   }
-  var user = new User(req.body.name);
+  var user = new User(req.body.name, req.body.skill, req.body.gender);
+  user.id = req.params.id;
   userPool[req.params.id] = user;
   res.status(200).json(user);
   serverlog('users: ', userPool);

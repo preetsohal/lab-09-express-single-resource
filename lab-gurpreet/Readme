@@ -1,6 +1,11 @@
 as a developer
 
-   
+   type npm install in order to start setup for node.
+   run node server.js in the terminal.
+   Send a POST request in another tab with: http POST :3000 name=
+   Send a GET request with: http GET :3000/api/user/
+   Send a PUT request with: http PUT :3000/api/user/ name=<name
+   run the mocha in terminal to see if it passes the test
 
 
 
@@ -9,4 +14,4 @@ as a developer
 
 
 
-      did not do much. :(
+      

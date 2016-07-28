@@ -18,7 +18,9 @@
     "body-parser": "^1.15.2",
     "chai-http": "^3.0.0",
     "cookie-parser": "^1.4.3",
+    "debug": "^2.2.0",
     "express": "^4.14.0",
-    "multer": "^1.1.0"
+    "multer": "^1.1.0",
+    "node-uuid": "^1.4.7"
   }
 }
