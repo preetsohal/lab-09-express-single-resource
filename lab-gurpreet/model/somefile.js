@@ -1,10 +1,12 @@
-const shortid = require('shortid');
+'use strict';
 
-function somefile(name, number, height) {
-  this.id = shortid.generate();
+const uuid = require('node-uuid');
+
+function somefile(name, skill, gender) {
+  this.id = uuid.generate();
   this.name = name;
-  this.number = number;
-  this.height = height;
+  this.skill = skill;
+  this.gender = gender;
 }
 
 module.exports = somefile;
